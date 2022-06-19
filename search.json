@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "fastkaggle",
+    "section": "",
+    "text": "Either:\npip install fastkaggle\nor:\nmamba install -c fastai fastkaggle\n(or replace mamba with conda if you don’t mind it taking much longer to run…)"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "fastkaggle",
+    "section": "How to use",
+    "text": "How to use\nThis little library is where I’ll be putting snippets of stuff which are useful on Kaggle. Functionality includes the following:\nIt defines iskaggle which is True if you’re running on Kaggle:\n\n'Kaggle' if iskaggle else 'Not Kaggle'\n\n'Not Kaggle'\n\n\nIt provides a setup_comp function which gets a path to the data for a competition, downloading it if needed, and also installs any modules that might be missing or out of data if running on Kaggle:\n\nsetup_comp('titanic')\n\nPath('titanic')\n\n\nThere’s also push_notebook to push a notebook to Kaggle Notebooks, and import_kaggle to use the Kaggle API (even when you’re on Kaggle!) See the fastkaggle.core docs for details."
+  },
+  {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "fastkaggle",
+    "section": "",
+    "text": "api not exported (#1)\n\n\n\n\n\n\ninit release"
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "fastkaggle.core",
+    "section": "",
+    "text": "import_kaggle\n\n import_kaggle ()\n\nImport kaggle API, using Kaggle secrets kaggle_username and kaggle_key if needed\n\napi = import_kaggle()\nL(api.competitions_list())\n\n(#20) [contradictory-my-dear-watson,gan-getting-started,store-sales-time-series-forecasting,tpu-getting-started,digit-recognizer,titanic,house-prices-advanced-regression-techniques,connectx,nlp-getting-started,spaceship-titanic...]\n\n\n\n\n\nsetup_comp\n\n setup_comp (competition, install='')\n\nGet a path to data for competition, downloading it if needed\n\nsetup_comp('titanic')\n\nPath('titanic')\n\n\nIf you pass a list of space separated modules to install, they’ll be installed if running on Kaggle.\n\n\n\nnb_meta\n\n nb_meta (user, id, title, file, competition=None, private=True,\n          gpu=False, internet=True)\n\nGet the dict required for a kernel-metadata.json file\n\nnb_meta('jhoward', 'my-notebook', 'My notebook', 'my-notebook.ipynb', competition='paddy-disease-classification')\n\n{'id': 'jhoward/my-notebook',\n 'title': 'My notebook',\n 'code_file': 'my-notebook.ipynb',\n 'language': 'python',\n 'kernel_type': 'notebook',\n 'is_private': True,\n 'enable_gpu': False,\n 'enable_internet': True,\n 'keywords': [],\n 'dataset_sources': [],\n 'kernel_sources': [],\n 'competition_sources': ['competitions/paddy-disease-classification']}\n\n\n\n\n\npush_notebook\n\n push_notebook (user, id, title, file, path='.', competition=None,\n                private=True, gpu=False, internet=True)\n\nPush notebook file to Kaggle Notebooks\nNote that Kaggle recommends that the id match the slug for the title – i.e it should be the same as the title, but lowercase, no punctuation, and spaces replaced with dashes. E.g:\npush_notebook('jhoward', 'first-steps-road-to-the-top-part-1',\n              title='First Steps: Road to the Top, Part 1',\n              file='first-steps-road-to-the-top-part-1.ipynb',\n              competition='paddy-disease-classification',\n              private=False, gpu=True)"
+  }
+]
